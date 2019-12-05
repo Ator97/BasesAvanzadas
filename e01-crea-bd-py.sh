@@ -25,12 +25,14 @@ echo "3.- Creando archivo de parametros básicos"
 echo \
 "db_name='mocabd3'
 memory_target=768M
-control_files=(/u01/app/oracle/oradata/MOCABD3/control01.ctl,
-	       /u01/app/oracle/oradata/MOCABD3/control02.ctl)" > $ORACLE_HOME/dbs/initmocabd3.ora
+control_files=(/u01/disk1/control01.ctl,
+	           /u01/disk2/control02.ctl,
+	           /u01/disk3/control03.ctl)" > $ORACLE_HOME/dbs/initmocabd3.ora
 
 #4- Cuando esto se crea se invoca el desde aqui e02-crea-bd-py.sql
 sqlplus / as sysdba @e02-crea-bd-py.sql 
 
 #5- Despues se ejecutan los archivos sql para que funcione correctamente la BD
+sqlplys / as sysdba @e03-crea-bd-py.sql
 
 
