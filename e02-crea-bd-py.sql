@@ -45,7 +45,7 @@ default temporary tablespace tempts1
 tempfile '/u01/app/oracle/oradata/MOCABD3/temp01.dbf'
 size 20m reuse autoextend on next 640k maxsize unlimited
 undo tablespace undotbs1
-datafile '/u01/app/oracle/oradata/MOCASBD3/undotbs01.dbf'
+datafile '/u01/app/oracle/oradata/MOCABD3/undotbs01.dbf'
 size 200m reuse autoextend on next 5120k maxsize unlimited
 user_data tablespace usertbs
 datafile '/u01/app/oracle/oradata/MOCABD3/usertbs01.dbf'
