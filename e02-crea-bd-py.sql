@@ -24,7 +24,7 @@ group 4 (
 	'/u01/disk1/redo04a.log',
 	'/u01/disk2/redo04b.log',
 	'/u01/disk3/redo04c.log'
-	) size 100m blocksize 512,
+	) size 100m blocksize 512
 maxloghistory 1 
 maxlogfiles 16
 maxlogmembers 3
@@ -76,14 +76,3 @@ create tablespace partition_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/partition01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
 extent management local;
-
-
-
-
-
-
-
-
-
-
-
