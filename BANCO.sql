@@ -1,0 +1,10 @@
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (1, 'Runolfsdottir Group');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (2, 'Hane-Kohler');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (3, 'Bogisich, Schmitt and Jacobson');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (4, 'Veum, Leuschke and Pfannerstill');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (5, 'Pagac-Davis');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (6, 'Von Group');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (7, 'Dickens-Littel');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (8, 'Moen Inc');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (9, 'Yundt, Toy and Zulauf');
+insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (10, 'Shanahan-Grant');
