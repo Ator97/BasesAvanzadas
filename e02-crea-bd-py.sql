@@ -25,8 +25,6 @@ group 4 (
 	'/u01/disk2/redo04b.log',
 	'/u01/disk3/redo04c.log'
 	) size 100m blocksize 512,
-
-
 maxloghistory 1 
 maxlogfiles 16
 maxlogmembers 3
@@ -50,24 +48,30 @@ size 200m reuse autoextend on next 5120k maxsize unlimited
 user_data tablespace usertbs
 datafile '/u01/app/oracle/oradata/MOCABD3/usertbs01.dbf'
 size 200m reuse autoextend on maxsize unlimited;
+
 --La base ya se encuentra en modo open
+
 --Actualizacion de contaseñas
 alter user sys identified by system2;
 alter user system identified by system2;
+
 --Creacion de tablespaces adicionales
 create tablespace apps_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/apps01.dbf'
 size 500m reuse autoextend on next 1280k maxsize unlimited
 extent management local;
+
 -- create a tablespace for indexes and clob dats, separate from user tablespace
 create tablespace indx_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/indx01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
 extent management local;
+
 create tablespace clob_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/clob01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
 extent management local;
+
 create tablespace partition_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/partition01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
