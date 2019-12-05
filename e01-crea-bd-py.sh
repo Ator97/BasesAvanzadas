@@ -4,24 +4,48 @@
 #Este scipt debe ser ejecutado por el usuario Oracle
 
 #!/bin/bash
+
+
+#0- Verificamos la existencia de las carpetas  /u01/disk1 /u01/disk2 y /u01/disk3
+if [ -d /u01/disk1/ ];then
+	echo "Carpeta /u01/disk1/ existe."
+else
+	mkdir /u01/disk1/
+	echo "Creamos la carpeta."
+fi
+if [ -d /u01/disk2/ ];then
+        echo "Carpeta /u01/disk2/ existe."
+else
+        mkdir /u01/disk2/
+	echo "Creamos la carpeta."
+fi
+if [ -d /u01/disk3/ ];then
+        echo "Carpeta /u01/disk3/ existe."
+else
+        mkdir /u01/disk3/
+	echo "Creamos la carpeta."
+fi
+
+
+
 #1- Se estable un nuevo valor de ORACLE_SID 
-echo "1- Configurando la variable ORACLE_SID"
-export ORACLE_SID=MOCABD3
+echo "1- Configurando la variable ORACLE_SID."
+export ORACLE_SID=mocabd3
 echo "ORACLE_SID: ${ORACLE_SID}"
 
 #2- Se crea un archivo de passwords unicamente con el usuario SYS
-#password usado en la creación oracle123*
-echo "2- Creando el archivo de passwords"   
+#password usado en la creación MOCA1234!
+echo "2- Creando el archivo de passwords."   
 if [ -f "/u01/app/oracle/product/18.0.0/dbhome_1/dbs/orapwmocabd3" ]; then
-   echo "El archivo ya existe" 
+   echo "El archivo ya existe." 
 else
-   orapwd FORVE=Y \
+   orapwd FORCE=Y \
 	FILE='/u01/app/oracle/product/18.0.0/dbhome_1/dbs/orapwmocabd3' \
 	FORMAT=12.2 \
 	SYS=password
 fi
 #3- Creando archivo de parametros. 
-echo "3.- Creando archivo de parametros básicos"
+echo "3.- Creando archivo de parametros básicos."
 echo \
 "db_name='mocabd3'
 memory_target=768M
