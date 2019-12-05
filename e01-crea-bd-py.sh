@@ -25,7 +25,12 @@ else
         mkdir /u01/disk3/
 	echo "Creamos la carpeta."
 fi
-
+if [ -d /u01/app/oracle/oradata/MOCABD3/ ];then
+	echo "La carpeta /u01/app/oracle/oradata/MOCABD3/ existe."
+else
+	mkdir /u01/app/oracle/oradata/MOCABD3/
+	echo "Creamos la carpeta."
+fi 
 
 
 #1- Se estable un nuevo valor de ORACLE_SID 
