@@ -33,7 +33,7 @@ BEGIN
       else
   	    EXECUTE IMMEDIATE 'CREATE USER '||my_user||v_user||' IDENTIFIED BY '||my_password
   		    ||'QUOTA UNLIMITED ON users DEFAULT tablespace users PASSWORD expire';
- 	      EXECUTE IMMEDIATE 'GRANT '||v_role||' TO '||my_user||v_user;
+ 	      EXECUTE IMMEDIATE 'GRANT USERSBD TO '||my_user||v_user;
   	    v_user := v_user + 1;
       end if;
   END loop;
@@ -45,7 +45,7 @@ BEGIN
   	  dbms_output.put_line ('El usuario '||my_user||v_user2||'ya existe, no es necesario crearlo');
     else
  	    EXECUTE IMMEDIATE 'CREATE USER '||my_user||v_user2||' IDENTIFIED BY '||my_password||'PASSWORD expire';
-  	  EXECUTE IMMEDIATE 'GRANT '||v_role||' TO '||my_user||v_user2;
+  	  EXECUTE IMMEDIATE 'GRANT USERSBD TO '||my_user||v_user2;
   	  v_user2 := v_user2 + 1;
     END if;
   END loop;
