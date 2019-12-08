@@ -79,13 +79,13 @@ CREATE TABLE ARTICULO(
     articulo_id           NUMBER(10, 0)    NOT NULL,
     nombre                VARCHAR2(50)     NOT NULL,
     descripcion           VARCHAR2(300),
-    precio_venta          NUMBER(10, 2)    NOT NULL,
-    codigo_barras         NUMBER(10, 2)    NOT NULL,
-    fotografia_1          BLOB             NOT NULL,
+    precio_venta_inicial         NUMBER(10, 2)    NOT NULL,
+    codigo_barras         char(10)    NOT NULL,
+    fotografia_1          BLOB             ,
     fotografia_2          BLOB,
-    vendido               DATE             NOT NULL,
+    fecha_status               DATE             NOT NULL,
     discrimimante         NUMBER(1, 0)     NOT NULL,
-    status_articulo_id    NUMBER(10, 0)    NOT NULL,
+    status_articulo    NUMBER(10, 0)    NOT NULL,
     cliente_id            NUMBER(10, 0)
 )
 TABLESPACE users;
@@ -116,10 +116,9 @@ CREATE TABLE CLIENTE(
     ap_paterno            VARCHAR2(50)     NOT NULL,
     ap_materno            VARCHAR2(50),
     correo_electronico    VARCHAR2(50)     NOT NULL,
-    foto_perfil           BLOB             NOT NULL,
-    resenia               VARCHAR2(300)     NOT NULL,
+    foto_perfil           BLOB             ,
+    resenia               VARCHAR2(500)     NOT NULL,
     usuario               VARCHAR2(50)     NOT NULL,
-    contrasenia           VARCHAR2(24)     NOT NULL,
     RFC                   CHAR(13)         NOT NULL,
     CLABE                 CHAR(18),
     tarjeta               CHAR(16),
@@ -169,7 +168,6 @@ TABLESPACE users;
 -- TABLE: HACIENDA 
 CREATE TABLE HACIENDA(
     articulo_id        NUMBER(10, 0)    NOT NULL,
-    nombre_hacienda    VARCHAR2(100)     NOT NULL,
     extension_km2      NUMBER(10, 2)    NOT NULL,
     direccion          VARCHAR2(50)
 )
@@ -255,7 +253,7 @@ TABLESPACE users;
 --Indices para tabla articulo
 CREATE INDEX articulo_articulo_id_pk ON ARTICULO(articulo_id)
 TABLESPACE indx_tbs;
-CREATE INDEX articulo_sai_fk ON ARTICULO(status_articulo_id)
+CREATE INDEX articulo_sai_fk ON ARTICULO(status_articulo)
 TABLESPACE indx_tbs;
 CREATE INDEX articulo_cliente_id_fk ON ARTICULO(cliente_id)
 TABLESPACE indx_tbs;
