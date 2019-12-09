@@ -2,7 +2,7 @@
 #--@Fecha 5-Dic-2019
 #--@Descripcion Borrado y Recuperación de Control file
 #!/bin/bash
-export ORACLE_SID=JAMSBD3
+export ORACLE_SID=MOCABD3
 sqlplus / as sysdba  @e01-control.sql 
 
 echo "Ha salido de sqlplus"

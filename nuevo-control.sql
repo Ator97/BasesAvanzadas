@@ -1,9 +1,9 @@
 --!/bin/bash
--- @Autor: Montecillo Sandoval Jose Alejandro
+-- @Autor: Montecillo Sandoval Jose Alejandro, Oscar Gutierrez Castillo
 -- @Fecha: 25 de Noviembre de 2019
 -- @Descricción: Creaciòn de un nuevo control file
 startup nomount
-create controlfile reuse database mocabd2 resetlogs noarchivelog
+create controlfile reuse database mocabd3 resetlogs noarchivelog
 maxlogfiles 16
 maxlogmembers 3
 maxdatafiles 1024
@@ -24,7 +24,12 @@ group 3 (
 '/u01/disk1/redo03a.log',
 '/u01/disk2/redo03b.log',
 '/u01/disk3/redo03c.log'
-) size 100m blocksize 512
+) size 100m blocksize 512,
+group 4 ( 
+	'/u01/disk1/redo04a.log',
+	'/u01/disk2/redo04b.log',
+	'/u01/disk3/redo04c.log'
+	) size 100m blocksize 512
 datafile
 '/u01/app/oracle/oradata/MOCABD3/system01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/sysaux01.dbf',
@@ -32,7 +37,6 @@ datafile
 '/u01/app/oracle/oradata/MOCABD3/users01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/usertbs01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/indx01.dbf',
-'/u01/app/oracle/oradata/MOCABD3/temp01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/apps01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/blob01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/partition01.dbf'

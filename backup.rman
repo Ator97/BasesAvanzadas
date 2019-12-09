@@ -1,0 +1,8 @@
+run{
+shutdown immediate;
+startup mount;
+allocate channel d1 type disk;
+backup as backupset database
+format '/u01/backups/ora_df_%t_%d_%s_%p';
+alter database open;
+}

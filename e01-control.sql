@@ -4,7 +4,7 @@
 
 startup
 show user
-connect usuario1/1234
+connect MOCA_PROY_ADMIN
 --create table IF NOT EXIST alumno(id number);
 --insert into alumno values(2);
 --commit; 
