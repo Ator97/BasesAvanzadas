@@ -85,12 +85,12 @@ CREATE TABLE ARTICULO(
     fotografia_2          BLOB              default EMPTY_BLOB(),
     fecha_status          DATE             NOT NULL,
     discrimimante       NUMBER(1, 0)     NOT NULL,
-    status_articulo     NUMBER(10, 0)       NOT NULL,
+    status_articulo_id     NUMBER(10, 0)       NOT NULL,
     cliente_id            NUMBER(10, 0)
 )
 TABLESPACE users
-LOB(fotografia_1) STORE AS BLOB_fotografia_1  (TABLESPACE CLOB_TBS)
-LOB(fotografia_2) STORE AS BLOB_fotografia_2  (TABLESPACE CLOB_TBS)
+LOB(fotografia_1) STORE AS BLOB_fotografia_1  (TABLESPACE BLOB_TBS)
+LOB(fotografia_2) STORE AS BLOB_fotografia_2  (TABLESPACE BLOB_TBS)
 partition by range (articulo_id) (
 partition articulo_p1 values less than (1500) TABLESPACE PARTITION_TBS,
 partition articulo_p2 values less than (3000) TABLESPACE PARTITION_TBS,
@@ -133,7 +133,7 @@ CREATE TABLE CLIENTE(
     banco_id              NUMBER(10, 0)    NOT NULL,
     estado_id             NUMBER(10, 0)
 )
-LOB(foto_perfil) STORE AS BLOB_foto_perfil  (TABLESPACE CLOB_TBS)
+LOB(foto_perfil) STORE AS BLOB_foto_perfil  (TABLESPACE BLOB_TBS)
 TABLESPACE users;
 
 -- TABLE: CLIENTE_SUBASTA 
@@ -260,7 +260,7 @@ TABLESPACE users;
 --Indices para tabla articulo
 CREATE INDEX articulo_articulo_id_pk ON ARTICULO(articulo_id)
 TABLESPACE indx_tbs;
-CREATE INDEX articulo_sai_fk ON ARTICULO(status_articulo)
+CREATE INDEX articulo_sai_fk ON ARTICULO(status_articulo_id)
 TABLESPACE indx_tbs;
 CREATE INDEX articulo_cliente_id_fk ON ARTICULO(cliente_id)
 TABLESPACE indx_tbs;
