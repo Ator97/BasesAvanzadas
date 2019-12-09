@@ -76,23 +76,25 @@ TABLESPACE users;
 
 -- TABLE: ARTICULO 
 CREATE TABLE ARTICULO(
-    articulo_id           NUMBER(10, 0)    NOT NULL,
-    nombre                VARCHAR2(50)     NOT NULL,
+    articulo_id           NUMBER(10, 0)     NOT NULL,
+    nombre                VARCHAR2(50)      NOT NULL,
     descripcion           VARCHAR2(300),
-    precio_venta_inicial         NUMBER(10, 2)    NOT NULL,
-    codigo_barras         char(10)    NOT NULL,
-    fotografia_1          BLOB             ,
-    fotografia_2          BLOB,
-    fecha_status               DATE             NOT NULL,
-    discrimimante         NUMBER(1, 0)     NOT NULL,
-    status_articulo    NUMBER(10, 0)    NOT NULL,
+    precio_venta_inicial    NUMBER(10, 2)     NOT NULL,
+    codigo_barras         char(10)          NOT NULL,
+    fotografia_1          BLOB              default EMPTY_BLOB(),
+    fotografia_2          BLOB              default EMPTY_BLOB(),
+    fecha_status          DATE             NOT NULL,
+    discrimimante       NUMBER(1, 0)     NOT NULL,
+    status_articulo     NUMBER(10, 0)       NOT NULL,
     cliente_id            NUMBER(10, 0)
 )
 TABLESPACE users
+LOB(fotografia_1) STORE AS BLOB_fotografia_1  (TABLESPACE CLOB_TBS)
+LOB(fotografia_2) STORE AS BLOB_fotografia_2  (TABLESPACE CLOB_TBS)
 partition by range (articulo_id) (
-partition articulo_p1 values less than (1500),
-partition articulo_p2 values less than (3000),
-partition articulo_pn values less than (maxvalue))
+partition articulo_p1 values less than (1500) TABLESPACE PARTITION_TBS,
+partition articulo_p2 values less than (3000) TABLESPACE PARTITION_TBS,
+partition articulo_pn values less than (maxvalue) TABLESPACE PARTITION_TBS)
 ;
 -- TABLE: BANCO 
 CREATE TABLE BANCO(
@@ -131,6 +133,7 @@ CREATE TABLE CLIENTE(
     banco_id              NUMBER(10, 0)    NOT NULL,
     estado_id             NUMBER(10, 0)
 )
+LOB(foto_perfil) STORE AS BLOB_foto_perfil  (TABLESPACE CLOB_TBS)
 TABLESPACE users;
 
 -- TABLE: CLIENTE_SUBASTA 
