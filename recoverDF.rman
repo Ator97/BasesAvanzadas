@@ -1,0 +1,18 @@
+#1-Entrar a interfaz rman 
+#rman target /
+
+#list backup of tablespace sysaux;
+
+#4. Salir de RMAN y detener la instancia.
+#5. Provocar una falla. Eliminar manualmente el archivo dbf que corresponde al tablespace sysaux.
+#6. Intentar levantar la instancia con el comando startup.
+#7. El comando anterior fallará debido a la pérdida del archivo dejando a la instancia en modo mount.
+
+run {
+list failure;
+advise failure;
+restore datafile 2;
+recover datafile 2;
+sql 'alter database datafile 2 online';
+}
+
