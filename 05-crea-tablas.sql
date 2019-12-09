@@ -88,8 +88,12 @@ CREATE TABLE ARTICULO(
     status_articulo    NUMBER(10, 0)    NOT NULL,
     cliente_id            NUMBER(10, 0)
 )
-TABLESPACE users;
-
+TABLESPACE users
+partition by range (articulo_id) (
+partition articulo_p1 values less than (1500),
+partition articulo_p2 values less than (3000),
+partition articulo_pn values less than (maxvalue))
+;
 -- TABLE: BANCO 
 CREATE TABLE BANCO(
     banco_id             NUMBER(10, 0)    NOT NULL,
