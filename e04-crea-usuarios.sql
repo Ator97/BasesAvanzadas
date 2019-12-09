@@ -29,7 +29,8 @@ BEGIN
     	from dba_users
     	where username = my_user||v_user;
       if v_count > 0 then 
-  	    dbms_output.put_line ('El usuario '||my_user||v_user||'ya existe, no es necesario crearlo');
+  	    dbms_output.put_line ('El usuario ya existe, no es necesario crearlo');
+        EXECUTE IMMEDIATE 'DROP USER '||my_user||v_user2;
       else
   	    EXECUTE IMMEDIATE 'CREATE USER '||my_user||v_user||' IDENTIFIED BY '||my_password
   		    ||'QUOTA UNLIMITED ON users DEFAULT tablespace users PASSWORD expire';
@@ -42,7 +43,8 @@ BEGIN
     from dba_users
     where username = my_user||v_user2;
     if v_count > 0 then 
-  	  dbms_output.put_line ('El usuario '||my_user||v_user2||'ya existe, no es necesario crearlo');
+  	  dbms_output.put_line ('El usuario ya existe, no es necesario crearlo');
+      EXECUTE IMMEDIATE 'DROP USER '||my_user||v_user2;
     else
  	    EXECUTE IMMEDIATE 'CREATE USER '||my_user||v_user2||' IDENTIFIED BY '||my_password||'PASSWORD expire';
   	  EXECUTE IMMEDIATE 'GRANT USERSBD TO '||my_user||v_user2;
