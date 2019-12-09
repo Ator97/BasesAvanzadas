@@ -321,7 +321,6 @@ ALTER TABLE descripcion_factura
     ADD CONSTRAINT cpk_df_dfi_pk
     PRIMARY KEY (descripcon_factura_id) USING INDEX df_dfi_pk;
 
-
 CREATE INDEX df_sbi_fk ON descripcion_factura(subasta_bien_id)
 TABLESPACE indx_tbs;
 
@@ -342,12 +341,12 @@ CREATE INDEX estado_pais_id_fk ON ESTADO(pais_id)
 TABLESPACE indx_tbs;
 
 --Indices para tabla factur
-CREATE INDEX factura_factura_id_pk ON FACTURA(cliente_id)
+CREATE INDEX factura_id_pk ON FACTURA(factura_id)
 TABLESPACE indx_tbs;
 
 ALTER TABLE FACTURA
-    ADD CONSTRAINT cpk_factura_factura_id_pk
-    PRIMARY KEY (cliente_id) USING INDEX factura_factura_id_pk;
+    ADD CONSTRAINT pk_factura_factura_id_pk
+    PRIMARY KEY (factura_id) USING INDEX factura_id_pk;
 
 
 CREATE INDEX factura_cliente_id_fk ON FACTURA(cliente_id)

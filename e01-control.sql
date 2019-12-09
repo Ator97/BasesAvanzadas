@@ -11,4 +11,3 @@ connect usuario1/1234
 insert into BANCO (BANCO_ID, BANCO_DESCRIPCION) values (10, 'Shanahan-Grant');
 commit;
 exit
-

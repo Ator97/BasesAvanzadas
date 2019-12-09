@@ -62,6 +62,8 @@ control_files=(/u01/disk1/control01.ctl,
 sqlplus / as sysdba @e02-crea-bd-py.sql 
 
 #5- Despues se ejecutan los archivos sql para que funcione correctamente la BD
-sqlplys / as sysdba @e03-crea-bd-py.sql
+sqlplus / as sysdba @e03-crea-bd-py.sql
 
-
+#6- Despues de crearse correctamente la BD se creara un usuario admin 
+#Para la creación de tablas y carga inicial 
+sqlplus / as sysdba @main.sql

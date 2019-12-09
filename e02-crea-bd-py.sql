@@ -31,7 +31,7 @@ maxlogmembers 3
 maxdatafiles 1024
 character set AL32UTF8
 national character set AL16UTF16
-extent management local 
+extent management local
 datafile '/u01/app/oracle/oradata/MOCABD3/system01.dbf'
 size 700m reuse autoextend on next 10240k maxsize unlimited
 sysaux datafile '/u01/app/oracle/oradata/MOCABD3/sysaux01.dbf'
@@ -59,18 +59,18 @@ alter user system identified by system2;
 create tablespace apps_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/apps01.dbf'
 size 500m reuse autoextend on next 1280k maxsize unlimited
-extent management local;
+extent management local autoallocate;
 
 -- create a tablespace for indexes and clob dats, separate from user tablespace
 create tablespace indx_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/indx01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
-extent management local;
+extent management local autoallocate;
 
-create tablespace clob_tbs logging
-datafile '/u01/app/oracle/oradata/MOCABD3/clob01.dbf'
+create tablespace blob_tbs logging
+datafile '/u01/app/oracle/oradata/MOCABD3/blob01.dbf'
 size 100m reuse autoextend on next 1280k maxsize unlimited
-extent management local;
+extent management local autoallocate;
 
 create tablespace partition_tbs logging
 datafile '/u01/app/oracle/oradata/MOCABD3/partition01.dbf'

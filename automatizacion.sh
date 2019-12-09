@@ -1,4 +1,4 @@
-#--@Authors Jose Alejando Montecillo Sandoval 
+#--@Authors Jose Alejando Montecillo Sandoval, Oscar Guitierrez Castillo
 #--@Fecha 5-Dic-2019
 #--@Descripcion Borrado y Recuperación de Control file
 #!/bin/bash
@@ -37,4 +37,4 @@ echo "shutdown immediate;" | sqlplus / as sysdba
 echo "shutdown abort;" | sqlplus / as sysdba 
 
 sqlplus / as sysdba @nuevo-control.sql
-#sqlplus / as sysdba @control.sql
+#sqlplus / as sysdba @control.sqlplus

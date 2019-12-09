@@ -34,7 +34,7 @@ datafile
 '/u01/app/oracle/oradata/MOCABD3/indx01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/temp01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/apps01.dbf',
-'/u01/app/oracle/oradata/MOCABD3/clob.dbf',
+'/u01/app/oracle/oradata/MOCABD3/blob01.dbf',
 '/u01/app/oracle/oradata/MOCABD3/partition01.dbf'
 character set al32utf8
 ;
